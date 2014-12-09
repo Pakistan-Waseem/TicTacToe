@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author waseem
  *
  */
-public class Simulator {
+ public class Simulator {
 
 	private char Fields[];
 	private Player player;
@@ -22,7 +22,7 @@ public class Simulator {
 	private int TotalTurn;
 
 	// Constructor Initializing the game parameters
-	public Simulator(Collection<Player> players, Visualizer visual) {
+	private Simulator(Collection<Player> players, Visualizer visual) {
 		Players = new ArrayList<Player>();
 		for (Player obj : players) {
 			if (obj.getPlayerStatus())
@@ -32,6 +32,10 @@ public class Simulator {
 		Fields = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 		visualizer = visual;
 		TotalTurn = 0;
+	}
+	public static Simulator getSimulator(Collection<Player> players, Visualizer visual)
+	{
+		return new Simulator(players,visual);
 	}
 
 	// Start Game

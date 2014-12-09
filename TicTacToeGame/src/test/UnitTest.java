@@ -43,7 +43,7 @@ public class UnitTest {
 		PlayerFactory playerfactory=new PlayerFactory();
 		Player player=playerfactory.createPlayer("Player", true);
 		Players.add(player);
-		simulator=new Simulator(Players,visualizer);
+		simulator=Simulator.getSimulator(Players,visualizer);
 		assertNotEquals(simulator, null);
 	}
 	//This test method is test either field is empty or not
@@ -55,7 +55,7 @@ public class UnitTest {
 		PlayerFactory playerfactory=new PlayerFactory();
 		Player player=playerfactory.createPlayer("Player", true);
 		Players.add(player);
-		simulator=new Simulator(Players,visualizer);
+		simulator=Simulator.getSimulator(Players,visualizer);
 		assertTrue(simulator.IsFieldEmpty(4));
 	}
 	//This test method is test Player is created well or not 

@@ -35,7 +35,7 @@ public class Launcher {
 		}
 		do {
 			visualizer=new Visualizer();
-			simulator=new Simulator(Players,visualizer);
+			simulator=Simulator.getSimulator(Players,visualizer);
 			simulator.StartGame();
 			System.out.println(simulator.GameResult());
 			System.out.println("Would you like to play again (Enter 'yes')? ");
