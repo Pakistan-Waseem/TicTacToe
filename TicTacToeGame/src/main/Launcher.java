@@ -38,6 +38,7 @@ public class Launcher {
 			simulator=Simulator.getSimulator(Players,visualizer);
 			simulator.StartGame();
 			System.out.println(simulator.GameResult());
+			simulator.clearScreen();
 			System.out.println("Would you like to play again (Enter 'yes')? ");
 			scan = new Scanner(System.in);
 			ch = scan.nextLine();

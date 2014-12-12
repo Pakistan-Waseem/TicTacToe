@@ -5,6 +5,7 @@ package simulator;
 
 import player.Player;
 import visual.Visualizer;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
@@ -19,7 +20,7 @@ import java.util.Scanner;
 	private Player player;
 	private ArrayList<Player> Players;
 	private Visualizer visualizer;
-	private int TotalTurn;
+	private int Moves;
 
 	// Constructor Initializing the game parameters
 	private Simulator(Collection<Player> players, Visualizer visual) {
@@ -31,7 +32,7 @@ import java.util.Scanner;
 		Players = (ArrayList<Player>) players;
 		Fields = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 		visualizer = visual;
-		TotalTurn = 0;
+		Moves = 0;
 	}
 	public static Simulator getSimulator(Collection<Player> players, Visualizer visual)
 	{
@@ -49,7 +50,7 @@ import java.util.Scanner;
 			if (position >= 1 && position <= 9) {
 				if (IsFieldEmpty(position)) {
 					Fields[position - 1] = player.getPlayerSymbol();
-					TotalTurn++;
+					Moves++;
 					NextPlayer();
 				}
 			}
@@ -144,7 +145,7 @@ import java.util.Scanner;
 	// checking that the game should be stop or not
 	private boolean isStopGame() {
 		boolean result = false;
-		if (TotalTurn >= 9)
+		if (Moves >= 9)
 			result = true;
 		else {
 			for (Player pl : Players) {
@@ -156,6 +157,12 @@ import java.util.Scanner;
 		}
 		return result;
 
+	}
+	// Clear Screen
+	public void clearScreen()
+	{
+		for(int i=1;i<50;i++)
+			System.out.println();
 	}
 
 }
