@@ -27,18 +27,18 @@ public class Launcher {
 		String ch;
 		Scanner scan;
 		Player player;
-		//Creating Player
+		//Creating Player and with first player has first turn
 		for(int i=1;i<3;i++)
 		{
-			player=playerfactory.createPlayer("PLAYER"+i,i==1?true:false);
+			player=playerfactory.createPlayer("PLAYER "+i,i==1?true:false);
 		    Players.add(player);
 		}
 		do {
 			visualizer=new Visualizer();
 			simulator=Simulator.getSimulator(Players,visualizer);
 			simulator.StartGame();
-			System.out.println(simulator.GameResult());
 			simulator.clearScreen();
+			System.out.println(simulator.GameResult());
 			System.out.println("Would you like to play again (Enter 'yes')? ");
 			scan = new Scanner(System.in);
 			ch = scan.nextLine();

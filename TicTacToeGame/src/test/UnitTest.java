@@ -2,6 +2,9 @@
  * 
  */
 package test;
+
+import org.mockito.Mockito;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -65,4 +68,12 @@ public class UnitTest {
 			Player player=playerfactory.createPlayer("Player", true);
 			assertNotEquals(player,null);
 		}
+		//Testing Visualizer object creation
+		/*public void testVisualizer()
+		{
+			char Fields[] = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+			Visualizer mockvisual=Mockito.mock(Visualizer.class);
+			Mockito.when().thenReturn(10);
+			
+		}*/
 }

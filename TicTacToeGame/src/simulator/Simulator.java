@@ -20,6 +20,7 @@ import java.util.Scanner;
 	private Player player;
 	private ArrayList<Player> Players;
 	private Visualizer visualizer;
+	private static Simulator simulator; 
 	private int Moves;
 
 	// Constructor Initializing the game parameters
@@ -36,7 +37,9 @@ import java.util.Scanner;
 	}
 	public static Simulator getSimulator(Collection<Player> players, Visualizer visual)
 	{
-		return new Simulator(players,visual);
+		if(simulator==null)
+			simulator=new Simulator(players,visual);
+		return simulator;
 	}
 
 	// Start Game
@@ -56,7 +59,7 @@ import java.util.Scanner;
 			}
 			else
 			{
-				System.out.println("Please Choose Correct Field");
+				System.out.println("Please choose correct field");
 			}
 			visualizer.DrawTicTacToeBoard(Fields);
 
@@ -70,7 +73,7 @@ import java.util.Scanner;
 		for (Player obj : Players) {
 			if (PositionSymbol == obj.getPlayerSymbol()) {
 				System.out
-						.println("This Field is already filled, please choose another.");
+						.println("This field is already filled, please choose another.");
 				isEmpty = false;
 			}
 		}
